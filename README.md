@@ -35,16 +35,6 @@ Date of finished: 14.12.25<br />
 - Настроить IP адресацию на PC1,2,3 в одной сети.
 - Проверить связность.
 
-# Схема
-
-Схема, построенная в draw.io:
-
-<img src="images/graph-1.png" width=600px>
-
-Схема, построенная ContainerLab:
-
-<img src="images/graph-2.png" width=600px>
-
 
 # Конфиг yaml
 
