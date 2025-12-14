@@ -48,10 +48,81 @@ Date of finished: 14.12.25<br />
 
 # Конфиг yaml
 
-Конфигурация сети аналогична вариантом предыдущим лабораторным работам. 6 роутеров, 3 компьютера.
+```
+name: lab4_1
+mgmt:
+  network: custom_mgmt
+  ipv4-subnet: 172.16.16.0/24
 
-Сеть управления: 172.16.16.0/24.
+topology:
+  nodes:
+    R01.SPB:
+      kind: vr_ros
+      image: vrnetlab/mikrotik_routeros:6.47.9
+      mgmt-ipv4: 172.16.16.101
+      startup-config: config/part1/R01.SPB.rsc
+    R01.HKI:
+      kind: vr_ros
+      image: vrnetlab/mikrotik_routeros:6.47.9
+      mgmt-ipv4: 172.16.16.102
+      startup-config: config/part1/R01.HKI.rsc
+    R01.SVL:
+      kind: vr_ros
+      image: vrnetlab/mikrotik_routeros:6.47.9
+      mgmt-ipv4: 172.16.16.103
+      startup-config: config/part1/R01.SVL.rsc
+    R01.LND:
+      kind: vr_ros
+      image: vrnetlab/mikrotik_routeros:6.47.9
+      mgmt-ipv4: 172.16.16.104
+      startup-config: config/part1/R01.LND.rsc
+    R01.LBN:
+      kind: vr_ros
+      image: vrnetlab/mikrotik_routeros:6.47.9
+      mgmt-ipv4: 172.16.16.105
+      startup-config: config/part1/R01.LBN.rsc
+    R01.NY:
+      kind: vr_ros
+      image: vrnetlab/mikrotik_routeros:6.47.9
+      mgmt-ipv4: 172.16.16.106
+      startup-config: config/part1/R01.NY.rsc
+    PC1:
+      kind: linux
+      image: alpine:latest
+      mgmt-ipv4: 172.16.16.2
+      binds:
+        - ./config:/config
+      exec:
+        - sh /config/pc.sh
+    PC2:
+      kind: linux
+      image: alpine:latest
+      mgmt-ipv4: 172.16.16.3
+      binds:
+        - ./config:/config
+      exec:
+        - sh /config/pc.sh
+    PC3:
+      kind: linux
+      image: alpine:latest
+      mgmt-ipv4: 172.16.16.4
+      binds:
+        - ./config:/config
+      exec:
+        - sh /config/pc.sh
 
+
+  links:
+    - endpoints: ["R01.SPB:eth1","R01.HKI:eth1"]
+    - endpoints: ["R01.NY:eth1","R01.LND:eth1"]
+    - endpoints: ["R01.SVL:eth1","R01.LBN:eth1"]
+    - endpoints: ["R01.HKI:eth2","R01.LND:eth3"]
+    - endpoints: ["R01.HKI:eth3","R01.LBN:eth2"]
+    - endpoints: ["R01.LND:eth2","R01.LBN:eth3"]
+    - endpoints: ["R01.SPB:eth2","PC1:eth1"]
+    - endpoints: ["R01.NY:eth2","PC2:eth1"]
+    - endpoints: ["R01.SVL:eth2","PC3:eth1"]
+```
 # Конфиги
 
 ## Роутеры
