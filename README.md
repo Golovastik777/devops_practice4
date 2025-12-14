@@ -179,18 +179,4 @@ AS — система сетей под управлением единстве�
 
 Цель работы была выполнена.
 
-# Источники
 
-1. BGP on a Mikrotik a complete configuration: https://tech.layer-x.com/bgp-on-mikrotik-a-complete-configuration-guide/
-
-2. BGP на Mikrotik: https://www.cloudhosting.lv/rus/faq/BGP-na-Mikrotik 
-
-3. Route Reflector: https://linkmeup.gitbook.io/sdsm/8.1.-ibgp/2.-problema-n-kvadrat/0.-route-reflector
-
-4. Mikrotik VTF+NAT: https://habr.com/ru/articles/262091/
-
-5. Разница между Route Distinguisher и Route Target: https://habr.com/ru/sandbox/99255/
-
-6. Layer-3 MPLS VPN example (пример vrf настройки): https://web.archive.org/web/20241114213912/https://wiki.mikrotik.com/File:L3vpn.png
-
-7. BGP based VPLS: https://web.archive.org/web/20241114204010/https://wiki.mikrotik.com/Manual:BGP_based_VPLS
