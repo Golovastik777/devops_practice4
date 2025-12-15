@@ -1,5 +1,5 @@
 /user
-add name=panindv password=panindv group=full
+add name=igor password=123 group=full
 remove admin
 /system identity
 set name=R01.NY
