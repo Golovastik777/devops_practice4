@@ -74,6 +74,9 @@ mgmt:
 
 Пример настройки `R01`:
 ```rsc
+/user
+add name=igor password=igor group=full
+remove admin
 /ip pool
 add name=dhcp_pool_Moscow ranges=192.168.1.3-192.168.1.200
 /ip dhcp-server
