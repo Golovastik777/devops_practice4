@@ -80,7 +80,7 @@ topology:
 
 Команды для настройки `R1`:
 ```
-
+/user add name=admin password=admin group=full
 /interface vlan
 add name=vlan10 vlan-id=10 interface=ether2
 add name=vlan20 vlan-id=20 interface=ether2
@@ -116,7 +116,6 @@ add chain=forward action=accept
 Команды для настройки `SW1`:
 ```
 
-# Настройка trunk порта к R1
 /interface ethernet
 set ether2 name=trunk-to-R1
 
@@ -161,31 +160,21 @@ add interface=vlan20-access bridge=bridge-vlan20
 
 ```
 #!/bin/sh
-sleep 15
 
 ip link add link eth2 name vlan10 type vlan id 10
 ip link set vlan10 up
 
 udhcpc -i vlan10 -t 5 -n -q
 
-echo "PC1 (VLAN 10) настроен"
-echo "IP адрес:"
-ip addr show vlan10 | grep "inet "
-
-while true; do sleep 3600; done
-
 ```
 
 Пример настройки `PC2`:
 ```
 #!/bin/sh
-
 ip link add link eth2 name vlan20 type vlan id 20
 ip link set vlan20 up
-
 udhcpc -i vlan20 -t 5 -n -q
 
-while true; do sleep 3600; done
 ```
 
 ### Пример работы
